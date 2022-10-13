@@ -1,5 +1,5 @@
 import tkinter
-from time import sleep
+import threading
 wndw = tkinter.Tk()
 lbl = tkinter.Label(
     text="Hello, Tkinter",
