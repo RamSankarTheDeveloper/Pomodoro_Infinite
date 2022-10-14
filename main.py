@@ -1,7 +1,7 @@
-import tkinter
 import threading
+import tkinter
 import winsound
-import asyncio
+
 wndw = tkinter.Tk()
 lbl = tkinter.Label(
     text="Hello, Tkinter",
@@ -19,18 +19,18 @@ def pomodoro():
     a = a+1
 
     if ((a%8)==0):
-        b=threading.Timer(3,pomodoro)
-        b.daemon=True
+        longbreak=threading.Timer(1,pomodoro)
+        longbreak.daemon=True
         print('longbreak')
-        b.start()
+        longbreak.start()
     elif ((a%2)==0):
-        b=threading.Timer(3,pomodoro)
+        b=threading.Timer(1,pomodoro)
         b.daemon = True
         print('shortbreak')
         b.start()
     else:
         lbl.config(text=int((a/2)+.5) )#just an eqn to subract the no. of breaks from global variable
-        b=threading.Timer(3,pomodoro)
+        b=threading.Timer(1,pomodoro)
         b.daemon = True #daemon-threads gets killed when sys.exit()
         print('pomodoro')
         b.start()
